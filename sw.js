@@ -1,4 +1,4 @@
-const C='acecpt-v3-20261119-4a553e94';
+const C='acecpt-v3-20261119-222ef801';
 const F=["./", "index.html", "manifest.json", "icon-192.png", "icon-512.png"];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(F.map(u=>c.add(u).catch(()=>{})))).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
